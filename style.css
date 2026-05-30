@@ -9,7 +9,7 @@ html, body {
 }
 
 body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: 'Fira Sans', sans-serif;
   background: #191818;
   color: #ccc;
   overflow-x: hidden;
@@ -19,8 +19,8 @@ body {
 
 .code-deco {
   position: fixed;
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 500;
+  font-family: 'Jersey 10', monospace;
+  font-weight: 400;
   color: #fedd4e0d;
   pointer-events: none;
   user-select: none;
@@ -29,14 +29,14 @@ body {
 
 .code-deco:first-child {
   font-size: 160px;
-  top: -20px;
-  right: 30px;
+  top: -10px;
+  right: 60px;
 }
 
 .code-deco.brace {
-  font-size: 200px;
-  bottom: -40px;
-  left: -20px;
+  font-size: 160px;
+  bottom: -20px;
+  left: 40px;
 }
 
 /* Layout principal */
@@ -52,11 +52,10 @@ body {
 /* Hero */
 
 .hero {
-  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 60px 24px 40px;
+  padding: clamp(40px, 8vh, 100px) 24px clamp(12px, 2vh, 28px);
 }
 
 .hero-content {
@@ -66,9 +65,9 @@ body {
 
 .badge {
   display: inline-block;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 12px;
-  font-weight: 500;
+  font-family: 'Jersey 10', monospace;
+  font-size: 14px;
+  font-weight: 400;
   color: #fedd4e;
   background: #fedd4e15;
   padding: 6px 16px;
@@ -78,9 +77,10 @@ body {
 }
 
 h1 {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Jersey 10', monospace;
+  font-weight: 400;
   font-size: 42px;
-  font-weight: 700;
+  line-height: 1.15;
   color: #fff;
   margin-bottom: 18px;
   line-height: 1.15;
@@ -98,6 +98,9 @@ h1 {
 }
 
 .ylw {
+  font-family: 'Jersey 10', monospace;
+  font-size: 18px;
+  font-weight: 400;
   color: #fedd4e;
 }
 
@@ -106,7 +109,7 @@ h1 {
   margin: 0 auto 24px;
   text-align: left;
   display: inline-block;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Fira Sans', sans-serif;
   font-size: 15px;
   color: #999;
   line-height: 1.6;
@@ -120,14 +123,76 @@ h1 {
 }
 
 .tags span {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 12px;
+  font-family: 'Jersey 10', monospace;
+  font-size: 16px;
   font-weight: 500;
   color: #fedd4e;
   background: #fedd4e10;
   padding: 5px 14px;
   border-radius: 4px;
   border: 1px solid #fedd4e18;
+}
+
+/* Marcas */
+
+.marcas {
+  margin-top: 28px;
+}
+
+.marcas-titulo {
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #fedd4e;
+  margin-bottom: 12px;
+}
+
+.marcas-carrossel {
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 5%,
+    #000 95%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 5%,
+    #000 95%,
+    transparent 100%
+  );
+}
+
+.marcas-track {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+  animation: scrollMarcas 40s linear infinite;
+}
+
+.marcas-track span {
+  flex-shrink: 0;
+  font-family: 'Jersey 10', monospace;
+  font-size: 20px;
+  font-weight: 400;
+  color: #555;
+  padding: 8px 20px;
+  background: #1e1e1e;
+  border: 1px solid #ffffff08;
+  border-radius: 20px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.marcas-track span:hover {
+  color: #fedd4e;
+  border-color: #fedd4e44;
+}
+
+@keyframes scrollMarcas {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 /* Materiais */
@@ -142,9 +207,9 @@ h1 {
 }
 
 .materiais h2 {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 18px;
-  font-weight: 600;
+  font-family: 'Jersey 10', monospace;
+  font-size: 20px;
+  font-weight: 400;
   color: #fedd4e;
   margin-bottom: 20px;
   text-align: center;
@@ -153,7 +218,7 @@ h1 {
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
+  gap: clamp(10px, 1.5vw, 16px);
 }
 
 .card {
@@ -176,9 +241,9 @@ h1 {
 }
 
 .card h3 {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
+  font-family: 'Jersey 10', monospace;
+  font-size: 15px;
+  font-weight: 400;
   color: #eee;
   margin-bottom: 10px;
   letter-spacing: 0.3px;
@@ -193,9 +258,10 @@ h1 {
 }
 
 .card ul li::before {
-  content: "> ";
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 12px;
+  content: "❯ ";
+  font-family: 'Jersey 10', monospace;
+  font-size: 13px;
+  font-weight: 400;
   color: #fedd4e66;
 }
 
@@ -210,38 +276,119 @@ h1 {
   color: #fedd4e;
 }
 
+/* Divisor decorativo */
+
+.divisor {
+  text-align: center;
+  font-family: 'Jersey 10', monospace;
+  font-size: 14px;
+  color: #fedd4e33;
+  letter-spacing: 6px;
+  padding: 12px 0;
+  user-select: none;
+}
+
+.divisor::before,
+.divisor::after {
+  content: "";
+  display: inline-block;
+  width: 60px;
+  height: 1px;
+  background: #fedd4e22;
+  vertical-align: middle;
+  margin: 0 12px;
+}
+
+/* Typing animation */
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.typing-cursor::after {
+  content: "|";
+  color: #fedd4e;
+  animation: blink 0.7s step-end infinite;
+  margin-left: 2px;
+}
+
 /* Footer */
 
 .footer {
   text-align: center;
   padding: 20px 24px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 12px;
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 13px;
   color: #444;
   border-top: 1px solid #ffffff06;
 }
 
 /* Responsivo */
 
-@media (max-width: 640px) {
+/* Telas grandes (1440px+) */
+@media (min-width: 1200px) {
+  .hero-content {
+    max-width: 660px;
+  }
+
+  .materiais-content {
+    max-width: 700px;
+  }
+
   h1 {
-    font-size: 28px;
+    font-size: 48px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Telas médias (tablet) */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 32px;
+  }
+
+  .hero-content {
+    max-width: 480px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Celular */
+@media (max-width: 500px) {
+  h1 {
+    font-size: 26px;
   }
 
   .desc {
-    font-size: 15px;
+    font-size: 14px;
   }
 
   .hero {
-    padding: 40px 20px 28px;
+    padding: 32px 16px 24px;
   }
 
   .materiais {
-    padding: 0 20px 32px;
+    padding: 0 16px 32px;
   }
 
   .grid {
     grid-template-columns: 1fr;
+  }
+
+  .marcas-track {
+    gap: 14px;
+  }
+
+  .marcas-track span {
+    font-size: 16px;
+    padding: 6px 14px;
   }
 
   .code-deco {
@@ -249,29 +396,33 @@ h1 {
   }
 }
 
+/* Telas baixas */
 @media (max-height: 700px) {
   .hero {
-    padding: 32px 24px 20px;
+    padding: 24px 24px 16px;
   }
 
   .materiais {
-    padding: 0 24px 24px;
-  }
-
-  .badge {
-    margin-bottom: 14px;
+    padding: 0 24px 20px;
   }
 
   h1 {
-    font-size: 34px;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
   }
 
   .desc {
-    margin-bottom: 16px;
+    margin-bottom: 14px;
+  }
+
+  .aprendizado {
+    margin-bottom: 14px;
+  }
+
+  .marcas {
+    margin-top: 16px;
   }
 
   .card {
-    padding: 14px 16px;
+    padding: 12px 14px;
   }
 }
